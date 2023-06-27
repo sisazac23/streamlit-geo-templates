@@ -3,21 +3,13 @@ import leafmap.foliumap as leafmap
 
 st.set_page_config(layout="wide")
 
-markdown = """
-Web App URL: <https://geotemplate.streamlit.app>
-GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
-"""
 
-st.sidebar.title("About")
-st.sidebar.info(markdown)
-logo = "https://i.imgur.com/UbOXYAU.png"
-st.sidebar.image(logo)
 
 st.title("Split-panel Map")
 
 with st.expander("See source code"):
     with st.echo():
-        m = leafmap.Map()
+        m = leafmap.Map(location=[6.249999, -75.5999976],locate_control=True, latlon_control=True, draw_export=True, minimap_control=True,zoom_start=12)
         m.split_map(
             left_layer='ESA WorldCover 2020 S2 FCC', right_layer='ESA WorldCover 2020'
         )
